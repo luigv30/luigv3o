@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portafolio Empresarial - Luis Roberto Guilcapi</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Estilo general */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: #333;
+            background-color: #f4f4f9;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Encabezado */
+        header {
+            background: linear-gradient(90deg, #002244, #00509e);
+            color: white;
+            padding: 20px;
+        }
+
+        header h1 {
+            font-size: 36px;
+            margin: 0;
+        }
+
+        header nav ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 10px 0 0;
+            text-align: center;
+        }
+
+        header nav ul li {
+            display: inline;
+            margin: 0 15px;
+        }
+
+        header nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-size: 18px;
+            transition: color 0.3s ease;
+        }
+
+        header nav ul li a:hover {
+            color: #ff9900;
+        }
+
+        /* Sección bienvenida */
+        #welcome {
+            background: #ff9900;
+            color: white;
+            padding: 50px 20px;
+            text-align: center;
+        }
+
+        #welcome h2 {
+            font-size: 40px;
+            margin-bottom: 20px;
+        }
+
+        #welcome p {
+            font-size: 18px;
+            margin-bottom: 30px;
+        }
+
+        .button {
+            background-color: #00509e;
+            color: white;
+            padding: 10px 20px;
+            text-decoration: none;
+            font-size: 18px;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        .button:hover {
+            background-color: #ff9900;
+        }
+
+        /* Sección sobre mí */
+        #about {
+            background-color: #ffffff;
+            padding: 50px 20px;
+            text-align: center;
+        }
+
+        #about h2 {
+            font-size: 30px;
+            color: #00509e;
+        }
+
+        #about p {
+            font-size: 18px;
+            margin-top: 10px;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* Sección proyectos */
+        #projects {
+            background-color: #f4f4f9;
+            padding: 50px 20px;
+            text-align: center;
+        }
+
+        #projects h2 {
+            font-size: 30px;
+            color: #00509e;
+        }
+
+        .projects-container {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .project-card {
+            background-color: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 300px;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .project-card img {
+            width: 100%;
+            border-radius: 8px;
+            margin-bottom: 15px;
+        }
+
+        .project-card h3 {
+            font-size: 15px;
+            margin-bottom: 10px;
+        }
+
+        .project-card p {
+            font-size: 16px;
+            color: #666;
+            margin-bottom: 15px;
+        }
+
+        .project-card a {
+            text-decoration: none;
+            background-color: #00509e;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        .project-card a:hover {
+            background-color: #ff9900;
+        }
+
+        /* Sección galería */
+        #media {
+            background-color: #ffffff;
+            padding: 50px 20px;
+            text-align: center;
+        }
+
+        #media h2 {
+            font-size: 30px;
+            color: #00509e;
+            margin-bottom: 30px;
+        }
+
+        /* Carrusel */
+        .carousel {
+            position: relative;
+            width: 100%;
+            max-width: 600px;
+            margin: auto;
+            overflow: hidden;
+        }
+
+        .carousel-images {
+            display: flex;
+            transition: transform 0.5s ease;
+        }
+
+        .carousel-images img {
+            width: 100%;
+            max-width: 600px;
+            display: block;
+        }
+
+        .carousel-button {
+            position: absolute;
+            top: 50%;
+            background-color: rgba(0, 0, 0, 0.5);
+            color: white;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+            z-index: 100;
+        }
+
+        .prev {
+            left: 0;
+        }
+
+        .next {
+            right: 0;
+        }
+
+        /* Sección contacto */
+        #contact {
+            background-color: #ff9900;
+            padding: 50px 20px;
+            text-align: center;
+        }
+
+        #contact h2 {
+            font-size: 30px;
+            color: white;
+            margin-bottom: 30px;
+        }
+
+        #contact form {
+            max-width: 600px;
+            margin: 0 auto;
+            text-align: left;
+            background-color: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        #contact label {
+            font-size: 18px;
+            color: #333;
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        #contact input, #contact textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            font-size: 12px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+
+        #contact button {
+            background-color: #00509e;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            font-size: 18px;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        #contact button:hover {
+            background-color: #ff9900;
+        }
+
+        /* Pie de página */
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+
+        footer p {
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Luis Roberto Guilcapi</h1>
+            <nav>
+                <ul>
+                    <li><a href="#welcome">Inicio</a></li>
+                    <li><a href="#about">Sobre mí</a></li>
+                    <li><a href="#projects">Proyectos</a></li>
+                    <li><a href="#media">Galería</a></li>
+                    <li><a href="#contact">Contacto</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section id="welcome">
+        <div class="welcome-content">
+            <h2>Bienvenidos a mi Portafolio Profesional</h2>
+            <p>Descubre mis habilidades, proyectos y cómo puedo ayudarte a llevar tus ideas al siguiente nivel.</p>
+            <a href="#about" class="button">Más sobre mí</a>
+        </div>
+    </section>
+
+    <section id="about">
+        <h2>Sobre mí</h2>
+        <p>Soy un desarrollador apasionado por crear soluciones tecnológicas innovadoras. Con experiencia en diseño web, desarrollo de aplicaciones y optimización digital, mi enfoque es brindar resultados de alta calidad a mis clientes.</p>
+    </section>
+
+    <section id="projects">
+        <h2>Proyectos destacados</h2>
+        <div class="projects-container">
+            <div class="project-card">
+                <img src="gestion de tareas,jpg.jpeg" alt="Gestión de Tareas">
+                <h3>Gestión de Tareas</h3>
+                <p>Un sistema para organizar tareas personales con opciones de personalización y reportes en tiempo real.</p>
+                <a href="#" class="button">Ver proyecto</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="media">
+        <h2>Galería y Multimedia</h2>
+        <div class="carousel">
+            <div class="carousel-images">
+                <img src="multimedia.jpg" alt="Imagen 1">
+
+            </div>
+            <button class="carousel-button prev" onclick="moveSlide(-1)">&#10094;</button>
+            <button class="carousel-button next" onclick="moveSlide(1)">&#10095;</button>
+        </div>
+
+        <p>Trabajo en equipo como base de proyectos exitosos.</p>
+        <video controls>
+            <source src="<iframe width="560" height="315" src="https://www.youtube.com/embed/VZe9tjqa9xw?si=7BKJ4Pztym86hLZP" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>" type="video">
+           
+        </video>
+    </section>
+
+    <section id="contact">
+        <h2>Contacto</h2>
+        <form>
+            <label for="name">Nombre:</label>
+            <input type="text" id="name" name="name" placeholder="Escribe tu nombre" required>
+            <label for="email">Correo:</label>
+            <input type="email" id="email" name="email" placeholder="Escribe tu correo" required>
+            <label for="message">Mensaje:</label>
+            <textarea id="message" name="message" rows="5" placeholder="Escribe tu mensaje aquí..." required></textarea>
+            <button type="submit" class="button">Enviar</button>
+        </form>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 Luis Roberto Guilcapi. Todos los derechos reservados.</p>
+    </footer>
+
+    <script>
+      
+        
+    </script>
+</body>
+</html>
